@@ -16,7 +16,11 @@ const errHandler = require("./middleware/error");
 
 require("dotenv").config();
 app.use(express.json({ limit: "50mb" }));
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(fileUpload());
 app.set("trust proxy", 1);
 
