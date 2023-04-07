@@ -11,17 +11,12 @@ const ticketroutes = require("./routes/ticketRoutes");
 
 const connectDB = require("./database");
 const bodyparser = require("body-parser");
-const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 const errHandler = require("./middleware/error");
 
 require("dotenv").config();
 app.use(express.json({ limit: "50mb" }));
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 app.use(fileUpload());
 app.set("trust proxy", 1);
 
