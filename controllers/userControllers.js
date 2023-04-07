@@ -50,6 +50,9 @@ const loginUser = asyncHandler(async (req, res, next) => {
   if (!userExists) {
     return next(new ErrorHandler("Invalid email or password", 401));
   }
+  if (userExists && !(await bcrypt.compare(password, userExists.password))) {
+    return next(new ErrorHandler("Invalid email or password", 401));
+  }
   if (userExists && (await bcrypt.compare(password, userExists.password))) {
     sendToken(userExists, 201, res);
   }
