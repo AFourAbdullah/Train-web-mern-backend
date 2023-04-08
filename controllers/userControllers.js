@@ -112,7 +112,11 @@ const getUserDetails = asyncHandler(async (req, res, next) => {
 // });
 const updateUserDetails = asyncHandler(async (req, res, next) => {
   const newData = { name: req.body.name, email: req.body.email };
-  if (req.body.avatar !== "") {
+  if (
+    req.body.avatar !== undefined &&
+    req.body.avatar !== null &&
+    req.body.avatar !== ""
+  ) {
     // Add a check for empty or undefined avatar
     const user = await userModel.findById(req.user.id);
 
