@@ -3,12 +3,12 @@ const { generateJwt } = require("../controllers/userControllers");
 const sendToken = (user, statusCode, res) => {
   const token = user.getToken();
   const options = {
-    httpOnly: false,
+    httpOnly: true,
     expires: new Date(
       Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     ),
-    sameSite: "strict", // set SameSite attribute to "None"
-    secure: true, // use Secure attribute for HTTPS connections
+    // sameSite: "strict", // set SameSite attribute to "None"
+    // secure: true, // use Secure attribute for HTTPS connections
   };
   res.status(statusCode).cookie("token", token, options).json({
     success: true,
