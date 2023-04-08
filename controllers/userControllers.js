@@ -80,9 +80,40 @@ const getUserDetails = asyncHandler(async (req, res, next) => {
 });
 
 //update user
+// const updateUserDetails = asyncHandler(async (req, res, next) => {
+//   const newData = { name: req.body.name, email: req.body.email };
+//   if (req.body.avatar !== "") {
+//     const user = await userModel.findById(req.user.id);
+
+//     const imageId = user.avatar.public_id;
+
+//     await cloudinary.v2.uploader.destroy(imageId);
+
+//     const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+//       folder: "avatars",
+//       width: 150,
+//       crop: "scale",
+//     });
+
+//     newData.avatar = {
+//       public_id: myCloud.public_id,
+//       url: myCloud.secure_url,
+//     };
+//   }
+//   const user = await userModel.findByIdAndUpdate(req.user.id, newData, {
+//     new: true,
+//     runValidators: true,
+//     useFindAndModify: false,
+//   });
+//   res.status(200).json({
+//     success: true,
+//     user,
+//   });
+// });
 const updateUserDetails = asyncHandler(async (req, res, next) => {
   const newData = { name: req.body.name, email: req.body.email };
   if (req.body.avatar !== "") {
+    // Add a check for empty or undefined avatar
     const user = await userModel.findById(req.user.id);
 
     const imageId = user.avatar.public_id;
