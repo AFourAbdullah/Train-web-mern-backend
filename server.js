@@ -20,7 +20,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "PUT", "POST"],
+    methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
     credentials: true,
     maxAge: 600,
