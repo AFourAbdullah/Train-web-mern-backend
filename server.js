@@ -19,7 +19,7 @@ app.use(express.json({ limit: "50mb" }));
 // app.use(cors());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://trainistanapp.netlify.app/",
     methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
     credentials: true,
