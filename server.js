@@ -19,7 +19,7 @@ app.use(express.json({ limit: "50mb" }));
 // app.use(cors());
 app.use(
   cors({
-    origin: true,
+    origin: "*",
     methods: ["GET", "PUT", "POST"],
     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
     credentials: true,
