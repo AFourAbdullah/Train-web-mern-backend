@@ -18,7 +18,7 @@ require("dotenv").config();
 app.use(express.json({ limit: "50mb" }));
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://192.168.100.29:3000",
     methods: ["POST", "PUT", "GET", "DELETE", "HEAD"],
     credentials: true,
   })
