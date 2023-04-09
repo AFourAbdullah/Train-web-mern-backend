@@ -35,7 +35,6 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
 app.use(fileUpload());
 app.set("trust proxy", 1);
 // app.use(
@@ -48,6 +47,7 @@ app.set("trust proxy", 1);
 // );
 app.use(cookieParser());
 app.use(bodyparser.json());
+app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: true }));
