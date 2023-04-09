@@ -22,13 +22,7 @@ const errHandler = require("./middleware/error");
 require("dotenv").config();
 app.use(express.json({ limit: "50mb" }));
 // app.use(cors());
-app.use(
-  cors({
-    origin: "https://fastidious-kelpie-e5e6b0.netlify.app",
-
-    // , credentials: true
-  })
-);
+app.use(cors());
 app.use(fileUpload());
 app.set("trust proxy", 1);
 // app.use(
