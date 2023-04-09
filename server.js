@@ -20,7 +20,7 @@ app.use(express.json({ limit: "50mb" }));
 // app.use(cors());
 app.use(
   cors({
-    origin: "http://192.168.100.29:3000",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
