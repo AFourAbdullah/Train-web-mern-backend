@@ -9,7 +9,10 @@ const cookieParser = require("cookie-parser");
 const trainRoutes = require("./routes/trainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const ticketroutes = require("./routes/ticketRoutes");
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://glittering-hamster-946780.netlify.app",
+];
 
 const connectDB = require("./database");
 const bodyparser = require("body-parser");
