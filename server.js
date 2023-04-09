@@ -47,6 +47,7 @@ app.set("trust proxy", 1);
 //   })
 // );
 app.use(cookieParser());
+app.use(bodyparser.json());
 
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: true }));
