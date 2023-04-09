@@ -24,7 +24,7 @@ app.use(express.json({ limit: "50mb" }));
 // app.use(cors());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://fastidious-kelpie-e5e6b0.netlify.app",
 
     // , credentials: true
   })
