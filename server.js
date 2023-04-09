@@ -22,7 +22,7 @@ const errHandler = require("./middleware/error");
 require("dotenv").config();
 app.use(express.json({ limit: "50mb" }));
 // app.use(cors());
-app.use(cors({ origin: "*", credentials: true }));
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(fileUpload());
 // app.set("trust proxy", 1);
 // app.use(
