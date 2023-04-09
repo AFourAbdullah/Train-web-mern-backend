@@ -21,14 +21,15 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cors());
 app.use(fileUpload());
 // app.set("trust proxy", 1);
-app.use(
-  cache({
-    "/index.html": 1000,
-    "/none/**/*.html": false,
-    "/private.html": "private, max-age=300",
-    "/**": 500, // Default to caching all items for 500
-  })
-);
+// app.use(
+//   cache({
+//     "/index.html": 1000,
+//     "/none/**/*.html": false,
+//     "/private.html": "private, max-age=300",
+//     "/**": 500, // Default to caching all items for 500
+//   })
+// );
+app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: true }));
@@ -43,7 +44,6 @@ cloudinary.config({
 app.use("/api/v1", trainRoutes);
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", ticketroutes);
-app.use(cookieParser());
 
 app.use(errHandler);
 app.listen(process.env.PORT, () => {
