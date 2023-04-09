@@ -9,6 +9,7 @@ const sendToken = (user, statusCode, res) => {
     ),
     sameSite: "None", // set SameSite attribute to "None"
     secure: true, // use Secure attribute for HTTPS connections
+    // domain: "localhost",
   };
   res.status(statusCode).cookie("token", token, options).json({
     success: true,
