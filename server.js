@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 const cors = require("cors");
+var cache = require("cache-control");
 
 const cloudinary = require("cloudinary");
 const cookieParser = require("cookie-parser");
@@ -20,6 +21,14 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cors());
 app.use(fileUpload());
 // app.set("trust proxy", 1);
+app.use(
+  cache({
+    "/index.html": 1000,
+    "/none/**/*.html": false,
+    "/private.html": "private, max-age=300",
+    "/**": 500, // Default to caching all items for 500
+  })
+);
 
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyparser.urlencoded({ limit: "50mb", extended: true }));
