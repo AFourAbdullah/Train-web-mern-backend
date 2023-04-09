@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const ErrorHandler = require("../utils/ErrorHandler");
 
 const isAuthenticatedUser = asyncHandler(async (req, res, next) => {
-  const { token } = req.headers.cookie;
+  const { token } = req.cookies;
   // let token;
   // if (
   //   req.headers.authorization &&
