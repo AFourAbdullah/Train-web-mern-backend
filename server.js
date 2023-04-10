@@ -30,7 +30,7 @@ app.use(express.json({ limit: "50mb" }));
 var cors = require("cors");
 const corsOptions = {
   // origin:'*',
-  origin: "https://stunning-panda-1204ff.netlify.app",
+  origin: true,
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
