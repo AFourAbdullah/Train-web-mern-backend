@@ -30,7 +30,7 @@ app.use(express.json({ limit: "50mb" }));
 var cors = require("cors");
 const corsOptions = {
   // origin:'*',
-  origin: true,
+  origin: "https://stunning-panda-1204ff.netlify.app",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -62,7 +62,12 @@ cloudinary.config({
 app.use("/api/v1", trainRoutes);
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", ticketroutes);
-
+// if (process.env.NODE_ENV == "Production") {
+//   const path = require("path");
+//   app.get("/", (req, res) => {
+//     res.sendFile(path.resolve());
+//   });
+// }
 app.use(errHandler);
 app.listen(process.env.PORT, () => {
   console.log(`server is listening at port:${process.env.PORT}`);
